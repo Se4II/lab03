@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/hello_world.dir/link.d CMakeFiles/hello_world.dir/src/main.cpp.o -o hello_world  ../formatter_ex_lib/libformatter_ex.a ../formatter_lib/libformatter.a

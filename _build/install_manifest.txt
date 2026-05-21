@@ -1,0 +1,3 @@
+/home/scoromoh/workspace/lab03/_install/lib/libformatter.a
+/home/scoromoh/workspace/lab03/_install/include/formatter.h
+/home/scoromoh/workspace/lab03/_install/lib/libformatter_ex.a
