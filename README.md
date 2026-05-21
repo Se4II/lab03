@@ -18,8 +18,8 @@ cd ~/Se4II/lab03
 mkdir -p formatter_lib formatter_ex hello_world solver_lib solver
 ```
 
-##2. Создание статической библиотеки formatter
-##2.1 Исходные файлы
+## 2. Создание статической библиотеки formatter
+## 2.1 Исходные файлы
 ```bash
 formatter_lib/formatter.h
 C++
@@ -99,7 +99,7 @@ void formatter_ex(std::ostream& out, const std::string& msg) {
     formatter(out, msg);
 }
 
-3.2 Скрипт сборки
+## 3.2 Скрипт сборки
 
 formatter_ex/CMakeLists.txt
 CMake
@@ -114,8 +114,8 @@ add_library(formatter_ex STATIC formatter_ex.cpp)
 target_include_directories(formatter_ex PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(formatter_ex PUBLIC formatter)
 
-4. Создание приложения hello_world
-4.1 Исходный код
+## 4. Создание приложения hello_world
+## 4.1 Исходный код
 
 hello_world/main.cpp
 C++
@@ -129,7 +129,7 @@ int main() {
     return 0;
 }
 
-4.2 Скрипт сборки
+## 4.2 Скрипт сборки
 
 hello_world/CMakeLists.txt
 CMake
@@ -146,8 +146,8 @@ target_include_directories(hello_world PRIVATE
 )
 target_link_libraries(hello_world PRIVATE formatter_ex formatter)
 
-5. Создание библиотеки solver_lib для решения квадратных уравнений
-5.1 Исходные файлы
+## 5. Создание библиотеки solver_lib для решения квадратных уравнений
+## 5.1 Исходные файлы
 
 solver_lib/solver.h
 C++
@@ -174,7 +174,7 @@ Roots solve_quadratic(double a, double b, double c) {
     };
 }
 
-5.2 Скрипт сборки
+## 5.2 Скрипт сборки
 
 solver_lib/CMakeLists.txt
 CMake
@@ -185,8 +185,8 @@ set(CMAKE_CXX_STANDARD 11)
 add_library(solver_lib STATIC solver.cpp)
 target_include_directories(solver_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-6. Создание основного приложения solver
-6.1 Исходный код
+## 6. Создание основного приложения solver
+## 6.1 Исходный код
 
 solver/main.cpp
 C++
@@ -209,7 +209,7 @@ int main() {
     return 0;
 }
 
-6.2 Скрипт сборки
+## 6.2 Скрипт сборки
 
 solver/CMakeLists.txt
 CMake
@@ -227,7 +227,7 @@ target_include_directories(solver PRIVATE
 )
 target_link_libraries(solver PRIVATE formatter_ex solver_lib)
 
-7. Итоговая структура проекта
+## 7. Итоговая структура проекта
 Plaintext
 
 ~/Se4II/lab03/
