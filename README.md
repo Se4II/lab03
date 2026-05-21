@@ -2,7 +2,6 @@
 
 **Выполнил:** Петров Владислав, группа ИУ8-22  
 **Операционная система:** Fedora Linux  
-**Дата выполнения:** 22.05.2026  
 
 ## Цель работы
 Освоить базовые возможности системы сборки CMake: создание статических библиотек, настройка зависимостей между модулями, сборка исполнительных приложений и управление путями к заголовочным файлам.
@@ -19,9 +18,9 @@ cd ~/Se4II/lab03
 mkdir -p formatter_lib formatter_ex hello_world solver_lib solver
 ```
 
-2. Создание статической библиотеки formatter
-2.1 Исходные файлы
-
+##2. Создание статической библиотеки formatter
+##2.1 Исходные файлы
+```bash
 formatter_lib/formatter.h
 C++
 
@@ -44,9 +43,9 @@ std::string formatter(const std::string& msg) {
 void formatter(std::ostream& out, const std::string& msg) {
     out << "[" << msg << "]";
 }
-
-2.2 Скрипт сборки
-
+```
+## 2.2 Скрипт сборки
+```bash
 formatter_lib/CMakeLists.txt
 Используем PUBLIC в target_include_directories, чтобы заголовки автоматически пробрасывались в зависимые цели.
 CMake
@@ -59,21 +58,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(formatter STATIC formatter.cpp)
 target_include_directories(formatter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+```
 
-2.3 Сборка
+## 2.3 Сборка
 Shell
-
+```bash
 cd formatter_lib
 rm -rf build
 cmake -H. -Bbuild
 cmake --build build
 cd ..
+```
+### Результат: статический файл libformatter.a успешно создан, компиляция прошла без предупреждений.
+## 3. Модуль formatter_ex (расширение с зависимостью)
 
-Результат: статический файл libformatter.a успешно создан, компиляция прошла без предупреждений.
-3. Модуль formatter_ex (расширение с зависимостью)
-
-Библиотека делегирует форматирование в formatter, поэтому требуется явно указать линковку.
-3.1 Исходные файлы
+### Библиотека делегирует форматирование в formatter, поэтому требуется явно указать линковку.
+## 3.1 Исходные файлы
 
 formatter_ex/formatter_ex.h
 C++
